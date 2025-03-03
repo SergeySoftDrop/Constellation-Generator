@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Constellation Generator</title>
+</head>
+<body>
+    <div class="modal__window" id="modal">
+        <div class="modal__content">
+            <div class="modal__content-column">
+                <div class="modal__content-row">
+                    <div class="modal__content-header">
+                        <h2 class="modal__title">Settings</h2>
+                        <div class="item close__btn" id="close_btn">x</div>
+                    </div>
+                </div>
+                <div class="modal__content-column">
+                    <div class="modal__content-grid">
+                        <label for="points_number_inp" class="modal__window_inp-label" title="Maximum points number in field">
+                            Number of points
+                            <input type="tel" class="item modal__window_inp" id="points_number_inp" max="1000" min="2" data-type="int" data-conf_field="maxPointsNumber">
+                        </label>
+                        <label for="min_line_length_inp" class="modal__window_inp-label" title="Minimum line length (percentages of the height or width of the field)">
+                            Minimum line length
+                            <input type="tel" class="item modal__window_inp" id="min_line_length_inp" max="600" min="1" data-type="int" data-conf_field="minLineLength">
+                        </label>
+                        <label for="max_points_speed" class="modal__window_inp-label" title="Maximum speed of points on the field">
+                            Maximum points speed
+                            <input type="tel" class="item modal__window_inp" id="max_points_speed" title="Maximum speed of points on the field" max="85" min="1" data-type="int" data-conf_field="maxPointsSpeed">
+                        </label>
+                        <label for="min_points_speed" class="modal__window_inp-label">
+                            Minimum points speed
+                            <input type="tel" class="item modal__window_inp" id="min_points_speed" title="Minimum speed of points on the field" max="85" min="1" data-type="int" data-conf_field="minPointsSpeed">
+                        </label>
+                        <label for="max_field_width" class="modal__window_inp-label" title="Maximum field width (0 - auto width)">
+                            Field width
+                            <input type="tel" class="item modal__window_inp" id="max_field_width" data-type="int" min="0" data-type="int" data-conf_field="maxFieldWidth">
+                        </label>
+                        <label for="max_field_height" class="modal__window_inp-label" title="Maximum field height (0 - auto height)">
+                            Field height
+                            <input type="tel" class="item modal__window_inp" id="max_field_height" data-type="int" min="0" data-conf_field="maxFieldHeight">
+                        </label>
+                        <label for="point_radius" class="modal__window_inp-label" title="Point radius">
+                            Point radius
+                            <input type="tel" class="item modal__window_inp" id="point_radius" data-type="int" min="1" max="20" data-conf_field="pointRadius">
+                        </label>
+                        <label for="line_color" class="modal__window_inp-label" title="Line fill color">
+                            Line color (rgba, HEX)
+                            <input type="tel" class="item modal__window_inp" id="line_color" data-type="color" data-conf_field="lineColor">
+                        </label>
+                        <label for="point_color" class="modal__window_inp-label" title="Point fill color">
+                            Point color (rgba, HEX)
+                            <input type="tel" class="item modal__window_inp" id="point_color" data-type="color" data-conf_field="pointColor">
+                        </label>
+                        <label for="body_color" class="modal__window_inp-label" title="Filed background color">
+                            Background color (rgba, HEX)
+                            <input type="tel" class="item modal__window_inp" id="body_color" data-type="color" data-conf_field="bodyColor">
+                        </label>
+                    </div>
+                    <div class="modal__content-grid">
+                        <label class="checkbox">
+                            <input type="checkbox" id="bounce" class="item" title="If the box is checked, the points bounce off, if not, the points are removed at the borders" data-type="bool" data-conf_field="bounce">
+                            <span class="checkmark"></span> Points bounce
+                        </label>                        
+                    </div>
+                </div>
+                <div class="modal__content-row modal__content-bottom">
+                    <div class="modal__content-row">
+                        <button class="item modal__window_btn row__item" id="reset_btn" title="Reset settings to default">Reset</button>
+                    </div>
+                    <div class="modal__content-row right bottom">
+                        <button class="item modal__window_btn row__item" id="cancel_btn" title="Undo changes">Cancel</button>
+                        <button class="item modal__window_btn row__item" id="save_btn" title="Save changes">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-overlay">
+        <span style="text-decoration: underline; cursor: pointer;" id="settings_btn" title="Open/Close settings.">Settings</span> - <span class="key_shortcut_text">ESC</span>
+    </div>
+    <canvas id="canvas"></canvas>
+    <!-- <script src="monolithic/index.js"></script> -->
+    <script src="modular/main.js" type="module"></script>
+</body>
+</html>
